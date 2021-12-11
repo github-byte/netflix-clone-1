@@ -1,5 +1,6 @@
 import React, { useState, useContext, createContext } from 'react';
-
+import { FirebaseContext } from '../../context/firebase';
+import styled from 'styled-components/macro';
 import {
   Container,
   Group,
@@ -19,6 +20,7 @@ import {
 } from './styles/card';
 
 export const FeatureContext = createContext();
+
 
 export default function Card({ children, ...restProps }) {
   const [showFeature, setShowFeature] = useState(false);
@@ -78,6 +80,7 @@ Card.Image = function CardImage({ ...restProps }) {
 Card.Feature = function CardFeature({ children, category, ...restProps }) {
   const { showFeature, itemFeature, setShowFeature } = useContext(FeatureContext);
 
+
   return showFeature ? (
     <Feature src={`/images/${category}/${itemFeature.genre}/${itemFeature.slug}/large.jpg`}>
       <Content>
@@ -99,3 +102,4 @@ Card.Feature = function CardFeature({ children, category, ...restProps }) {
     </Feature>
   ) : null;
 };
+

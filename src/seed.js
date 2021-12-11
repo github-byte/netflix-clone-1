@@ -9,10 +9,10 @@ export function seedDatabase(firebase) {
     });
     /* eslint-enable */
   }
-
   /* Series
     ============================================ */
   // Documentaries
+  
   firebase.firestore().collection('series').add({
     id: getUUID(),
     title: 'Tiger King',
